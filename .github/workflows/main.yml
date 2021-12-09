@@ -23,9 +23,12 @@ jobs:
     steps:
     
       - name: discord-action
+        env:
+          HOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          NAME: ${{ secrets.NAME }}
         run: |
           curl --request POST \
-          --url ${{ secrets.DISCORD_WEBHOOK }} \
+          --url $HOOK \
           --header 'Content-Type: application/json' \
           --data '{
            "embeds": [
@@ -34,7 +37,7 @@ jobs:
                "fields": [
                  {
                    "name": "Sha",
-                   "value":  ${{ secrets.NAME }},
+                   "value":  ${NAME},
                  },
                  {
                    "name": "Api Web",
