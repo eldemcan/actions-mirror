@@ -23,36 +23,7 @@ jobs:
     steps:
     
       - name: discord-action
-        run: |
-          echo $NAME 
-          curl --request POST \
-          --url $HOOK \
-          --header 'Content-Type: application/json' \
-          --data '{
-           "embeds": [
-             {
-               "title": "Deployment Status",
-               "fields": [
-                 {
-                   "name": "Sha",
-                   "value":  ${NAME},
-                 },
-                 {
-                   "name": "Api Web",
-                   "value": "https://vsk.me/",
-                 },
-                 {
-                   "name": "Api DeployExit code",
-                   "value": "0",
-                 },
-                 {
-                   "name": "Hosting",
-                   "value": "true"
-                 }
-               ]
-             }
-           ]
-          }'
-          env:
-            HOOK: "https://discord.com/api/webhooks/909939146238341181/btXG0UeWa7XljQRd3TOdBt9D4ezDB6C3K2h5yv9nVTeTab6mKE6ht1DS4erfSZEPEfcR"
-            NAME: ${{ secrets.NAME }}
+        run: ./discord.sh 
+        env:
+          HOOK: "https://discord.com/api/webhooks/909939146238341181/btXG0UeWa7XljQRd3TOdBt9D4ezDB6C3K2h5yv9nVTeTab6mKE6ht1DS4erfSZEPEfcR"
+          NAME: ${{ secrets.NAME }}
