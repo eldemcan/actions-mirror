@@ -34,18 +34,15 @@ jobs:
                "fields": [
                  {
                    "name": "Sha",
-                   "value": "2314",
-                   "inline": true
+                   "value":  ${{ secrets.NAME }},
                  },
                  {
                    "name": "Api Web",
                    "value": "https://vsk.me/",
-                   "inline": true
                  },
                  {
                    "name": "Api DeployExit code",
                    "value": "0",
-                   "inline": true
                  },
                  {
                    "name": "Hosting",
