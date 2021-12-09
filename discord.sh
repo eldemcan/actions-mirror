@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Running...."
+
 curl --request POST \
 --url $HOOK \
 --header 'Content-Type: application/json' \
