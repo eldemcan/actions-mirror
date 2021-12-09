@@ -25,6 +25,8 @@ jobs:
       - name: discord-action
         run: |
           cd ${{github.workspace}}
+          ls 
+          cat discord.sh
           ./discord.sh
         shell: bash
         env:
