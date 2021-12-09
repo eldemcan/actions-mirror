@@ -23,41 +23,40 @@ jobs:
     steps:
     
       - name: discord-action
-        uses: sebastianpopp/discord-action@v1.0
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: |
-           
-           {
-  "username": "Test",
-  "avatar_url": "https://i.imgur.com/4M34hi2.png",
-  "embeds": [
-    '{
-      "title": "This is a test message",
-      "url": "https://google.com/",
-      "description": "Dummy deployment message",
-      "color": 15258703,
-      "fields": [
-        {
-          "name": "App Id",
-          "value": "2314",
-          "inline": true
-        },
-        {
-          "name": "Endpoint",
-          "value": "https://vsk.me/",
-          "inline": true
-        },
-        {
-          "name": "Exit code",
-          "value": "0",
-          "inline": true
-        },
-        {
-          "name": "Is Auto Deploy?",
-          "value": "true"
-        }
-      ]
-    }
-  ]
-}'
+        run: |
+          curl --request POST \
+          --url https://discord.com/api/webhooks/890555101083750413/gjInittGwnnEHey1vGTHUw8TJWM5W65gBwJ_nV5FbSXzplXLZVnG_TLrrnkH0EYyPi0H \
+          --header 'Content-Type: application/json' \
+          --data '{
+           "username": "Test",
+           "avatar_url": "https://i.imgur.com/4M34hi2.png",
+           "embeds": [
+             {
+               "title": "This is a test message",
+               "url": "https://google.com/",
+               "description": "Dummy deployment message",
+               "color": 15258703,
+               "fields": [
+                 {
+                   "name": "App Id",
+                   "value": "2314",
+                   "inline": true
+                 },
+                 {
+                   "name": "Endpoint",
+                   "value": "https://vsk.me/",
+                   "inline": true
+                 },
+                 {
+                   "name": "Exit code",
+                   "value": "0",
+                   "inline": true
+                 },
+                 {
+                   "name": "Is Auto Deploy?",
+                   "value": "true"
+                 }
+               ]
+             }
+           ]
+          }'
