@@ -23,10 +23,8 @@ jobs:
     steps:
     
       - name: discord-action
-        env:
-          HOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          NAME: ${{ secrets.NAME }}
         run: |
+          echo $NAME 
           curl --request POST \
           --url $HOOK \
           --header 'Content-Type: application/json' \
@@ -55,3 +53,6 @@ jobs:
              }
            ]
           }'
+          env:
+            HOOK: ${{ secrets.DISCORD_WEBHOOK }}
+            NAME: ${{ secrets.NAME }}
