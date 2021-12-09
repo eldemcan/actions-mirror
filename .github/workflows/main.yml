@@ -23,7 +23,7 @@ jobs:
     steps:
     
       - name: discord-action
-        run: discord.sh 
+        run: "${GITHUB_WORKSPACE}/.github/workflows/diccord.sh"
         shell: bash
         env:
           HOOK: "https://discord.com/api/webhooks/909939146238341181/btXG0UeWa7XljQRd3TOdBt9D4ezDB6C3K2h5yv9nVTeTab6mKE6ht1DS4erfSZEPEfcR"
