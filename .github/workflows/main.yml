@@ -24,10 +24,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: discord-action
         env:
-          HOOK: "https://discord.com/api/webhooks/909939146238341181/btXG0UeWa7XljQRd3TOdBt9D4ezDB6C3K2h5yv9nVTeTab6mKE6ht1DS4erfSZEPEfcR"
-          API_WEB: false
-          HOSTING: false
-          API_DEPLOY: true
-          SHA: 123
-          TITLE: can
-        run: cd ${{github.workspace}}/.github/workflows/discord.sh
+			
+	      - name: send message to channel
+	        if: always()
+	        env:
+	          HOOK: ${{ secrets.DISCORD_WEBHOOK }}
+	          API_WEB: false
+	          HOSTING: true
+	          API_DEPLOY: true
+	          SHA: 1234
+	          TITLE: Automatic deployment to Canary
+	        run: ${{github.workspace}}/.github/workflows/discord.sh
