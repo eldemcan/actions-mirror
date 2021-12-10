@@ -22,16 +22,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-      - name: discord-action
+      - name: send message to channel
         env:
-			
-	      - name: send message to channel
-	        if: always()
-	        env:
-	          HOOK: ${{ secrets.DISCORD_WEBHOOK }}
-	          API_WEB: false
-	          HOSTING: true
-	          API_DEPLOY: true
-	          SHA: 1234
-	          TITLE: Automatic deployment to Canary
-	        run: ${{github.workspace}}/.github/workflows/discord.sh
+          HOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          API_WEB: false
+          HOSTING: true
+          API_DEPLOY: true
+          SHA: 1234
+          TITLE: Automatic deployment to Canary
+        run: ${{github.workspace}}/.github/workflows/discord.sh
