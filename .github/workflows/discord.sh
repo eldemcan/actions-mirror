@@ -1,14 +1,6 @@
 #!/bin/bash
 set -e
 
-
-HOOK=https://discord.com/api/webhooks/909939146238341181/btXG0UeWa7XljQRd3TOdBt9D4ezDB6C3K2h5yv9nVTeTab6mKE6ht1DS4erfSZEPEfcR
-API_WEB=false
-HOSTING=true
-API_DEPLOY=true
-SHA=1234
-TITLE="Automatic dss"
-
 if [ "$MANUAL" == true ]; then
 curl --request POST \
   --url $HOOK \
