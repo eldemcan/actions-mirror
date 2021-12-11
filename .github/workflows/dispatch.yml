@@ -1,0 +1,19 @@
+name: Repository Dispatch
+on:
+  repository_dispatch:
+    types: [auto-deployment]
+jobs:
+  autoDeployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: send message to channel
+        env:
+          HOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          API_WEB:  ${{ github.event.client_payload.can.api-web }}
+          HOSTING:  ${{ github.event.client_payload.can.hosting }}
+          API_DEPLOY: ${{ github.event.client_payload.can.api-deploy }}
+          SHA: ${{ github.event.client_payload.can.sha }}
+          TITLE: Automatic deployment to Canary
+        run: ${{github.workspace}}/.github/workflows/discord.sh
