@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo "payload #{payload}"
+
 if [ "$MANUAL" == true ]; then
 curl --request POST \
   --url $HOOK \
