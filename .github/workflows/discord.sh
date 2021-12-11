@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "payload #{payload}"
+echo "payload ${PAYLOAD}"
 
 if [ "$MANUAL" == true ]; then
 curl --request POST \
