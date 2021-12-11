@@ -15,6 +15,6 @@ jobs:
           HOSTING:  ${{ github.event.client_payload.can.hosting }}
           API_DEPLOY: ${{ github.event.client_payload.can.api-deploy }}
           SHA: ${{ github.event.client_payload.can.sha }}
-		  PAYLOAD: ${{ github.event.client_payload }}
+          PAYLOAD: ${{ github.event.client_payload }}
           TITLE: Automatic deployment to Canary
         run: ${{github.workspace}}/.github/workflows/discord.sh
