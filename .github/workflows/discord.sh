@@ -1,7 +1,10 @@
 #!/bin/bash
 set -e
 
-echo "payload ${PAYLOAD}"
+echo "sha ${SHA}"
+echo "tile ${TITLE}"
+echo "hostu ${TITLE}"
+echo "sha ${API_DEPLOY}"
 
 if [ "$MANUAL" == true ]; then
 curl --request POST \
